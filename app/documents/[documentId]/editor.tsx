@@ -1,12 +1,39 @@
 "use client";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import ImageResize from "tiptap-extension-resize-image";
 import { TaskList, TaskItem } from "@tiptap/extension-list";
 import { TableKit } from "@tiptap/extension-table";
 import Image from "@tiptap/extension-image";
+import { useEditorStore } from "@/store/use-editor-store";
 
 export const Editor = () => {
+  const { setEditor } = useEditorStore();
   const editor = useEditor({
+    onCreate({ editor }) {
+      setEditor(editor);
+    },
+    onDestroy() {
+      setEditor(null);
+    },
+    onUpdate({ editor }) {
+      setEditor(editor);
+    },
+    onSelectionUpdate({ editor }) {
+      setEditor(editor);
+    },
+    onTransaction({ editor }) {
+      setEditor(editor);
+    },
+    onFocus({ editor }) {
+      setEditor(editor);
+    },
+    onBlur({ editor }) {
+      setEditor(editor);
+    },
+    onContentError({ editor }) {
+      setEditor(editor);
+    },
     editorProps: {
       attributes: {
         style: "padding-left: 56px; padding-right: 56px;",
@@ -16,22 +43,14 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      ImageResize,
       TaskList,
       TaskItem.configure({ nested: true }),
       TableKit.configure({ table: { resizable: true } }),
-      Image.configure({
-        resize: {
-          enabled: true,
-          directions: ["top", "bottom", "left", "right"], // can be any direction or diagonal combination
-          minWidth: 50,
-          minHeight: 50,
-          alwaysPreserveAspectRatio: true,
-        },
-        allowBase64: true,
-      }),
+      Image,
     ],
     content: `
-        <p>This is a basic example of implementing images. Drag to re-order.</p>
+        <img src="https://placehold.co/600x400" />
       `,
     immediatelyRender: false,
   });
