@@ -3,6 +3,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ImageResize from "tiptap-extension-resize-image";
 import { TaskList, TaskItem } from "@tiptap/extension-list";
+import { FontFamily, TextStyle } from "@tiptap/extension-text-style";
 import { TableKit } from "@tiptap/extension-table";
 import Image from "@tiptap/extension-image";
 import { useEditorStore } from "@/store/use-editor-store";
@@ -48,6 +49,8 @@ export const Editor = () => {
       TaskItem.configure({ nested: true }),
       TableKit.configure({ table: { resizable: true } }),
       Image,
+      FontFamily,
+      TextStyle,
     ],
     content: `
         <img src="https://placehold.co/600x400" />
