@@ -8,6 +8,7 @@ import Highlight from "@tiptap/extension-highlight";
 import { TableKit } from "@tiptap/extension-table";
 import Image from "@tiptap/extension-image";
 import { useEditorStore } from "@/store/use-editor-store";
+import Link from "@tiptap/extension-link";
 
 export const Editor = () => {
   const { setEditor } = useEditorStore();
@@ -54,6 +55,11 @@ export const Editor = () => {
       TextStyle,
       Color,
       Highlight.configure({ multicolor: true }),
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: "https",
+      }),
     ],
     content: `
         <img src="https://placehold.co/600x400" />

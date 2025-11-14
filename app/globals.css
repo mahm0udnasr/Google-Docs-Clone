@@ -122,6 +122,17 @@
 }
 
 .tiptap {
+  /* Link Style */
+  a {
+    /* color: var(--purple); */
+    @apply text-blue-600;
+    cursor: pointer;
+
+    &:hover {
+      /* color: var(--purple-contrast); */
+      @apply underline;
+    }
+  }
   /* List styles */
   ul,
   ol {
