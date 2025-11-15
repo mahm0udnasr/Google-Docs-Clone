@@ -4,6 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import ImageResize from "tiptap-extension-resize-image";
 import { TaskList, TaskItem } from "@tiptap/extension-list";
 import { Color, FontFamily, TextStyle } from "@tiptap/extension-text-style";
+import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import { TableKit } from "@tiptap/extension-table";
 import Image from "@tiptap/extension-image";
@@ -54,6 +55,9 @@ export const Editor = () => {
       FontFamily,
       TextStyle,
       Color,
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
       Highlight.configure({ multicolor: true }),
       Link.configure({
         openOnClick: false,
