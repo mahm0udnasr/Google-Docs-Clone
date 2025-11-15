@@ -61,9 +61,6 @@ export const Editor = () => {
         defaultProtocol: "https",
       }),
     ],
-    content: `
-        <img src="https://placehold.co/600x400" />
-      `,
     immediatelyRender: false,
   });
   return (
