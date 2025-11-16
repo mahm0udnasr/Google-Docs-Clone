@@ -3,7 +3,12 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ImageResize from "tiptap-extension-resize-image";
 import { TaskList, TaskItem } from "@tiptap/extension-list";
-import { Color, FontFamily, TextStyle } from "@tiptap/extension-text-style";
+import {
+  Color,
+  FontFamily,
+  TextStyle,
+  FontSize,
+} from "@tiptap/extension-text-style";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import { TableKit } from "@tiptap/extension-table";
@@ -58,6 +63,7 @@ export const Editor = () => {
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
+      FontSize,
       Highlight.configure({ multicolor: true }),
       Link.configure({
         openOnClick: false,
