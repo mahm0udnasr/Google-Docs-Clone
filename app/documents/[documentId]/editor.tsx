@@ -8,6 +8,7 @@ import {
   FontFamily,
   TextStyle,
   FontSize,
+  LineHeight,
 } from "@tiptap/extension-text-style";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
@@ -59,11 +60,12 @@ export const Editor = () => {
       Image,
       FontFamily,
       TextStyle,
+      FontSize,
+      LineHeight,
       Color,
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
-      FontSize,
       Highlight.configure({ multicolor: true }),
       Link.configure({
         openOnClick: false,
