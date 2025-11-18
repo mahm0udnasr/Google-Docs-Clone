@@ -29,6 +29,7 @@ import {
   RemoveFormattingIcon,
   SearchIcon,
   SpellCheckIcon,
+  StrikethroughIcon,
   UnderlineIcon,
   Undo2Icon,
   UploadIcon,
@@ -619,6 +620,12 @@ const Toolbar = () => {
         icon: UnderlineIcon,
         isActive: editor?.isActive("underline"),
         onClick: () => editor?.chain().focus().toggleUnderline().run(),
+      },
+      {
+        label: "Strike",
+        icon: StrikethroughIcon,
+        isActive: editor?.isActive("strike"),
+        onClick: () => editor?.chain().focus().toggleStrike().run(),
       },
     ],
     [
