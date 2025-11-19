@@ -77,13 +77,6 @@ export const Editor = () => {
       }),
     ],
     immediatelyRender: false,
-    content: `
-          <p>This isn’t striked through.</s></p>
-          <p><s>But that’s striked through.</s></p>
-          <p><del>And this.</del></p>
-          <p><strike>This too.</strike></p>
-          <p style="text-decoration: line-through">This as well.</p>
-          `,
   });
   return (
     <div className="size-full overflow-x-auto bg-[#F9fBFD] px-4 print:p-0 print:bg-white print:overflow-visible">
