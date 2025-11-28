@@ -22,9 +22,6 @@ export default function Home() {
       </div>
       <div className="mt-16">
         <TemplateGallery />
-        {/* {documents?.map((document) => (
-          <span key={document._id}>{document.title}</span>
-        ))} */}
         <DocumentsTable
           documents={results}
           loadMore={loadMore}
