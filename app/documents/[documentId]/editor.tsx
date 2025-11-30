@@ -1,4 +1,8 @@
 "use client";
+import {
+  FloatingToolbar,
+  useLiveblocksExtension,
+} from "@liveblocks/react-tiptap";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import ImageResize from "tiptap-extension-resize-image";
@@ -18,8 +22,10 @@ import Image from "@tiptap/extension-image";
 import { useEditorStore } from "@/store/use-editor-store";
 import Link from "@tiptap/extension-link";
 import { Ruler } from "./ruler";
+import { Threads } from "./threads";
 
 export const Editor = () => {
+  const liveblocks = useLiveblocksExtension();
   const { setEditor } = useEditorStore();
   const editor = useEditor({
     onCreate({ editor }) {
@@ -55,6 +61,7 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      liveblocks,
       Strike,
       ImageResize,
       TaskList,
@@ -77,12 +84,15 @@ export const Editor = () => {
       }),
     ],
     immediatelyRender: false,
+    textDirection: "auto",
   });
   return (
     <div className="size-full overflow-x-auto bg-[#F9fBFD] px-4 print:p-0 print:bg-white print:overflow-visible">
       <Ruler />
       <div className="min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0">
         <EditorContent editor={editor} />
+        <Threads editor={editor} />
+        <FloatingToolbar editor={editor} />
       </div>
     </div>
   );

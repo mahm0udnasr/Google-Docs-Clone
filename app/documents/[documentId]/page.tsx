@@ -1,5 +1,6 @@
 import { Editor } from "./editor";
 import { Navbar } from "./navbar";
+import { Room } from "./Room";
 import Toolbar from "./toolbar";
 interface DocumentPageProps {
   params: Promise<{ documentId: string }>;
@@ -7,7 +8,6 @@ interface DocumentPageProps {
 
 const DocumentPage = async ({ params }: DocumentPageProps) => {
   const documentId = (await params).documentId;
-  console.log(documentId)
   return (
     <div className="min-h-screen bg-[#FAFBFD]">
       <div className="flex flex-col px-4 pt-2 gap-y-2 fixed top-0 left-0 right-0 z-10 bg-[#FAFBFD] print:hidden">
@@ -15,7 +15,9 @@ const DocumentPage = async ({ params }: DocumentPageProps) => {
         <Toolbar />
       </div>
       <div className="pt-[114px] print:p-0">
-        <Editor />
+        <Room>
+          <Editor />
+        </Room>
       </div>
     </div>
   );
