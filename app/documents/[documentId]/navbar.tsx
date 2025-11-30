@@ -35,8 +35,14 @@ import {
 import { BsFilePdf } from "react-icons/bs";
 import { useEditorStore } from "@/store/use-editor-store";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
+import { Id } from "@/convex/_generated/dataModel";
+import { Avatars } from "./avatars";
+// import { useQuery } from "convex/react";
+// import { api } from "@/convex/_generated/api";
 
-export const Navbar = () => {
+export const Navbar = ({ documentId }: { documentId: Id<"documents"> }) => {
+  // const DocFile = useQuery(api.documents.getById, { id: documentId });
+  // console.log(DocFile);
   const { editor } = useEditorStore();
   const insertTable = ({ cols, rows }: { cols: number; rows: number }) => {
     editor
@@ -59,7 +65,7 @@ export const Navbar = () => {
     const blob = new Blob([JSON.stringify(content)], {
       type: "application/json",
     });
-    onDownload(blob, `document.json`); // TODO: Use doc name
+    onDownload(blob, `${document?.title}.json`);
   };
   const onSaveHTML = () => {
     if (!editor) return;
@@ -67,7 +73,7 @@ export const Navbar = () => {
     const blob = new Blob([content], {
       type: "text/html",
     });
-    onDownload(blob, `document.html`); // TODO: Use doc name
+    onDownload(blob, `${document?.title}.html`);
   };
   const onSaveText = () => {
     if (!editor) return;
@@ -75,7 +81,7 @@ export const Navbar = () => {
     const blob = new Blob([content], {
       type: "text/plain",
     });
-    onDownload(blob, `document.txt`); // TODO: Use doc name
+    onDownload(blob, `${document?.title}.txt`);
   };
   return (
     <nav className="flex items-center justify-between">
@@ -84,7 +90,7 @@ export const Navbar = () => {
           <Image src="/logo.ico" alt="website Logo" width={36} height={36} />
         </Link>
         <div className="flex flex-col">
-          <DocumentInput />
+          <DocumentInput title={""} />
           <div className="flex">
             <Menubar className="border-none bg-transparent shadow-none h-auto p-0">
               <MenubarMenu>
@@ -248,6 +254,7 @@ export const Navbar = () => {
         </div>
       </div>
       <div className="flex gap-3 items-center pl-6">
+        <Avatars />
         <OrganizationSwitcher
           afterCreateOrganizationUrl="/"
           afterLeaveOrganizationUrl="/"
