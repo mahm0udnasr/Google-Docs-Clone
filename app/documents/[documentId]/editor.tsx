@@ -84,6 +84,7 @@ export const Editor = () => {
       }),
     ],
     immediatelyRender: false,
+    autofocus: true,
     textDirection: "auto",
   });
   return (
