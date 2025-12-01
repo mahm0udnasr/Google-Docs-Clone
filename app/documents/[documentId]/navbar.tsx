@@ -37,6 +37,7 @@ import { useEditorStore } from "@/store/use-editor-store";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Id } from "@/convex/_generated/dataModel";
 import { Avatars } from "./avatars";
+import { Inbox } from "./inbox";
 // import { useQuery } from "convex/react";
 // import { api } from "@/convex/_generated/api";
 
@@ -255,6 +256,7 @@ export const Navbar = ({ documentId }: { documentId: Id<"documents"> }) => {
       </div>
       <div className="flex gap-3 items-center pl-6">
         <Avatars />
+        <Inbox />
         <OrganizationSwitcher
           afterCreateOrganizationUrl="/"
           afterLeaveOrganizationUrl="/"
