@@ -61,11 +61,14 @@ export function Room({ children }: { children: ReactNode }) {
         const documents = await getDocuments(roomIds as Id<"documents">[]);
         return documents.map((document) => ({
           id: document.id,
-          name: document.name
-        }))
+          name: document.name,
+        }));
       }}
     >
-      <RoomProvider id={params.documentId as string}>
+      <RoomProvider
+        id={params.documentId as string}
+        initialStorage={{ leftMargin: 56, rightMargin: 56 }}
+      >
         <ClientSideSuspense
           fallback={<FullscreenLoader label="Room loading..." />}
         >
