@@ -653,39 +653,19 @@ const Toolbar = () => {
       {sections[0].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
-      <Separator
-        orientation="vertical"
-        style={{ height: "24px !important" }}
-        className="bg-neutral-300"
-      />
+      <Separator orientation="vertical" className="h-6!" />
       <FontFamilyButton />
-      <Separator
-        orientation="vertical"
-        style={{ height: "24px !important" }}
-        className="bg-neutral-300"
-      />
+      <Separator orientation="vertical" className="h-6!" />
       <HeadingLevelButton />
-      <Separator
-        orientation="vertical"
-        style={{ height: "24px !important" }}
-        className="bg-neutral-300"
-      />
+      <Separator orientation="vertical" className="h-6!" />
       <FontSizeButton />
-      <Separator
-        orientation="vertical"
-        style={{ height: "24px !important" }}
-        className="bg-neutral-300"
-      />
+      <Separator orientation="vertical" className="h-6!" />
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
       <TextColorButton />
       <HighlightColorButton />
-      <Separator
-        orientation="vertical"
-        style={{ height: "24px !important" }}
-        className="bg-neutral-300"
-      />
+      <Separator orientation="vertical" className="h-6!" />
       <LinkButton />
       <ImageButton />
       <AlignButton />
