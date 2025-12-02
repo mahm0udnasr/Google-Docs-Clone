@@ -19,7 +19,7 @@ export const Document = ({ preloadedDocument }: DocumentPageProps) => {
           <Toolbar />
         </div>
         <div className="pt-[114px] print:p-0">
-          <Editor />
+          <Editor initialContent={document.initialContent} />
         </div>
       </div>
     </Room>
