@@ -35,11 +35,13 @@ export const Ruler = () => {
         const relativeX = e.clientX - containerRect.left;
         const rawPosition = Math.max(0, Math.min(PAGE_WIDTH, relativeX));
         if (isDraggingLeft) {
-          const maxLeftPosition = PAGE_WIDTH - rightMargin - MINIMUM_SPACE;
+          const maxLeftPosition =
+            PAGE_WIDTH - (rightMargin ?? RIGHT_MARGIN_DEFAULT) - MINIMUM_SPACE;
           const newLeftPosition = Math.min(rawPosition, maxLeftPosition);
           setLeftMargin(newLeftPosition);
         } else if (isDraggingRight) {
-          const maxRightPosition = PAGE_WIDTH - (leftMargin + MINIMUM_SPACE);
+          const maxRightPosition =
+            PAGE_WIDTH - ((leftMargin ?? LEFT_MARGIN_DEFAULT) + MINIMUM_SPACE);
           const newRightPosition = Math.max(PAGE_WIDTH - rawPosition, 0);
           const constrainedRightPosition = Math.min(
             newRightPosition,
