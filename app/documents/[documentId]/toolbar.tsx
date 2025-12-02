@@ -394,7 +394,7 @@ const LinkButton = () => {
       <DropdownMenuContent className="p-2.5 flex items-center gap-x-2">
         <Input
           placeholder="Paste Link"
-          value={value}
+          value={value || ""}
           onChange={(e) => setValue(e.target.value)}
         />
         <Button onClick={() => onChange(value)}>Apply</Button>

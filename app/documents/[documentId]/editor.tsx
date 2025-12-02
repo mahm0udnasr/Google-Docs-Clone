@@ -70,9 +70,10 @@ export const Editor = ({ initialContent }: EditorProps) => {
       },
     },
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        undoRedo: false,
+      }),
       liveblocks,
-      Strike,
       ImageResize,
       TaskList,
       TaskItem.configure({ nested: true }),
@@ -87,11 +88,11 @@ export const Editor = ({ initialContent }: EditorProps) => {
         types: ["heading", "paragraph"],
       }),
       Highlight.configure({ multicolor: true }),
-      Link.configure({
-        openOnClick: false,
-        autolink: true,
-        defaultProtocol: "https",
-      }),
+      // Link.configure({
+      //   openOnClick: false,
+      //   autolink: true,
+      //   defaultProtocol: "https",
+      // }),
     ],
     immediatelyRender: false,
     autofocus: true,
